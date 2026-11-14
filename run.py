@@ -25,9 +25,15 @@ MAX_TOKENS = {"glm-5.3": 8000, "glm-5.2": 8000, "qwen3.5-397b": 8000}  # 4,000 w
 def run_one(model, ep, rep=0):
     temp, extra = (0.0, None) if rep == 0 else (0.7, {"seed": rep})
     try:
-        out = chat(model, ep["messages"], max_tokens=MAX_TOKENS.get(model, 400), temperature=temp, extra=extra)
+        cap = MAX_TOKENS.get(model, 400)
+        out = chat(model, ep["messages"], max_tokens=cap, temperature=temp, extra=extra)
+        retried = False
+        if not out["text"] and out["finish"] == "length":
+            # Pre-registered (deviation 3): a reply left empty by the token cap is re-run once at 4x the cap.
+            out = chat(model, ep["messages"], max_tokens=cap * 4, temperature=temp, extra=extra)
+            retried = True
         return {"id": ep["id"], "model": model, "rep": rep, "reply": out["text"], "finish": out["finish"],
-                "usage": out["usage"], "error": None}
+                "usage": out["usage"], "error": None, "cap_retry": retried}
     except Exception as e:  # transport errors already retried 6 times inside chat()
         return {"id": ep["id"], "model": model, "rep": rep, "reply": "", "finish": None, "usage": {}, "error": str(e)[:300]}
 
@@ -52,7 +58,9 @@ def main():
         errs = sum(1 for r in rows if r["error"])
         empty = sum(1 for r in rows if not r["reply"])
         cut = sum(1 for r in rows if r["finish"] == "length")
-        print(f"{model}: {len(rows)} replies, {errs} errors, {empty} empty, {cut} hit max tokens -> {path}")
+        retried = sum(1 for r in rows if r.get("cap_retry"))
+        print(f"{model}: {len(rows)} replies, {errs} errors, {empty} empty, {cut} hit max tokens, "
+              f"{retried} re-run at a higher cap -> {path}")
         if a.pilot:
             for r in rows:
                 print(f"\n--- {r['id']}\n{r['reply'][:600]}")
