@@ -84,4 +84,5 @@ This study is new work for the sprint. It builds on ideas from the author's Turn
 
 ## Deviations
 
-None yet.
+1. **14 Nov 2026, 23:00 IST, before any study run.** In a second pilot at 4,000 tokens, Qwen 3.5 397B still left 1 of 6 replies empty (reasoning hit the limit) and GLM-5.3 used 3,999 tokens on one reply. The cap for GLM-5.3, GLM-5.2 and Qwen 3.5 397B is raised to 8,000 tokens. No study episode had been run.
+2. **14 Nov 2026.** The two AutoScientist training runs were launched a few minutes before this file was first committed. The fine-tuned arm was already specified in this file; no results from it existed when it was committed.

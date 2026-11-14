@@ -19,7 +19,7 @@ MODELS = ("deepseek-v4.1-flash-1017", "glm-5.3", "qwen3.8-27b",            # Vul
 
 # Per-model overrides, set from the pilot before any study run (see PREREG.md): these models
 # reason before answering and their APIs did not turn it off, so 400 tokens left 2-5 of 6 replies empty.
-MAX_TOKENS = {"glm-5.3": 4000, "glm-5.2": 4000, "qwen3.5-397b": 4000}
+MAX_TOKENS = {"glm-5.3": 8000, "glm-5.2": 8000, "qwen3.5-397b": 8000}  # 4,000 was not always enough (see PREREG deviations)
 
 
 def run_one(model, ep, rep=0):
