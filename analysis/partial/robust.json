@@ -1,0 +1,934 @@
+{
+ "partial_snapshot": {
+  "planned_models": [
+   "deepseek-v4.1-flash-1017",
+   "glm-5.3",
+   "qwen3.8-27b",
+   "gemma-4-31b-it",
+   "gemma-4-26b-a4b-it",
+   "qwen3.5-397b",
+   "glm-5.2"
+  ],
+  "planned_rows": 8064,
+  "observed_models": [
+   "deepseek-v4.1-flash-1017",
+   "gemma-4-26b-a4b-it",
+   "gemma-4-31b-it",
+   "glm-5.2",
+   "glm-5.3",
+   "qwen3.5-397b",
+   "qwen3.8-27b"
+  ],
+  "observed_rows": 8064,
+  "analysed_rows": 8064,
+  "missing": 0,
+  "duplicate": 0,
+  "extra_including_duplicates": 0,
+  "unresolved_verdicts": 0
+ },
+ "failures": {
+  "deepseek-v4.1-flash-1017|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 10,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 374,
+   "asked_for_another_lookup": 0
+  },
+  "deepseek-v4.1-flash-1017|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 133,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 251,
+   "asked_for_another_lookup": 0
+  },
+  "deepseek-v4.1-flash-1017|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 2,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 382,
+   "asked_for_another_lookup": 0
+  },
+  "gemma-4-26b-a4b-it|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 2,
+   "cap_retry": 3,
+   "degenerate": 0,
+   "usable": 382,
+   "asked_for_another_lookup": 0
+  },
+  "gemma-4-26b-a4b-it|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "gemma-4-26b-a4b-it|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "gemma-4-31b-it|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 16,
+   "cap_retry": 0,
+   "degenerate": 16,
+   "usable": 368,
+   "asked_for_another_lookup": 0
+  },
+  "gemma-4-31b-it|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 11,
+   "cap_retry": 0,
+   "degenerate": 11,
+   "usable": 373,
+   "asked_for_another_lookup": 0
+  },
+  "gemma-4-31b-it|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 9,
+   "cap_retry": 0,
+   "degenerate": 9,
+   "usable": 375,
+   "asked_for_another_lookup": 0
+  },
+  "glm-5.2|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "glm-5.2|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "glm-5.2|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 3
+  },
+  "glm-5.3|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "glm-5.3|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "glm-5.3|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 1
+  },
+  "qwen3.5-397b|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-397b|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-397b|hinglish": {
+   "n": 384,
+   "empty": 1,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 383,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.8-27b|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 8,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 376,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.8-27b|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 25,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 359,
+   "asked_for_another_lookup": 40
+  },
+  "qwen3.8-27b|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 6,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 378,
+   "asked_for_another_lookup": 5
+  }
+ },
+ "failure_totals": {
+  "n": 8064,
+  "empty": 1,
+  "capped": 222,
+  "cap_retry": 3,
+  "degenerate": 36,
+  "usable": 7841,
+  "asked_for_another_lookup": 49
+ },
+ "identical_input_twins": {
+  "deepseek-v4.1-flash-1017": {
+   "none": {
+    "identical": 144,
+    "different": 0
+   },
+   "placebo": {
+    "identical": 139,
+    "different": 5
+   }
+  },
+  "gemma-4-26b-a4b-it": {
+   "none": {
+    "identical": 144,
+    "different": 0
+   },
+   "placebo": {
+    "identical": 144,
+    "different": 0
+   }
+  },
+  "gemma-4-31b-it": {
+   "none": {
+    "identical": 144,
+    "different": 0
+   },
+   "placebo": {
+    "identical": 144,
+    "different": 0
+   }
+  },
+  "glm-5.2": {
+   "none": {
+    "identical": 144,
+    "different": 0
+   },
+   "placebo": {
+    "identical": 144,
+    "different": 0
+   }
+  },
+  "glm-5.3": {
+   "none": {
+    "identical": 144,
+    "different": 0
+   },
+   "placebo": {
+    "identical": 144,
+    "different": 0
+   }
+  },
+  "qwen3.5-397b": {
+   "none": {
+    "identical": 144,
+    "different": 0
+   },
+   "placebo": {
+    "identical": 143,
+    "different": 1
+   }
+  },
+  "qwen3.8-27b": {
+   "none": {
+    "identical": 141,
+    "different": 3
+   },
+   "placebo": {
+    "identical": 144,
+    "different": 0
+   }
+  }
+ },
+ "n_usable_units_rows": 6768,
+ "all|pre-registered outcome": {
+  "H1 tool value used, no labels": [
+   0.27380952380952384,
+   0.24699900793650795,
+   0.301612103174603,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.9077380952380952,
+   0.8898809523809523,
+   0.9246031746031746,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.6765873015873015,
+   0.6507688492063491,
+   0.701388888888889,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.23115079365079366,
+   -0.25595238095238093,
+   -0.20634920634920634,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.1884920634920635,
+   0.1656746031746032,
+   0.21130952380952384,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.016865079365079416,
+   -0.03869047619047619,
+   0.004960317460317443,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.06547619047619048,
+   0.04166666666666667,
+   0.08928571428571429,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   0.03571428571428571,
+   0.01488095238095238,
+   0.05952380952380952,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.7629899726526892,
+   0.7173830315993222,
+   0.8089361877045003,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   0.05654761904761907,
+   0.017857142857142905,
+   0.10119047619047616,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   0.059523809523809534,
+   0.02083333333333337,
+   0.10119047619047616,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.11507936507936507,
+   0.0873015873015873,
+   0.14285714285714285,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.018849206349206348,
+   0.00992063492063492,
+   0.028769841269841268,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.10119047619047619,
+   0.07837301587301587,
+   0.12400793650793651,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.07738095238095238,
+   0.05654761904761905,
+   0.10218253968253968,
+   2000
+  ]
+ },
+ "all|recommend": {
+  "H1 tool value used, no labels": [
+   0.27380952380952384,
+   0.24699900793650795,
+   0.301612103174603,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.9077380952380952,
+   0.8898809523809523,
+   0.9246031746031746,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.6765873015873015,
+   0.6507688492063491,
+   0.701388888888889,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.23115079365079366,
+   -0.25595238095238093,
+   -0.20634920634920634,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.1884920634920635,
+   0.1656746031746032,
+   0.21130952380952384,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.016865079365079416,
+   -0.03869047619047619,
+   0.004960317460317443,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.06547619047619048,
+   0.04166666666666667,
+   0.08928571428571429,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   0.03571428571428571,
+   0.01488095238095238,
+   0.05952380952380952,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.7629899726526892,
+   0.7173830315993222,
+   0.8089361877045003,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   0.05654761904761907,
+   0.017857142857142905,
+   0.10119047619047616,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   0.059523809523809534,
+   0.02083333333333337,
+   0.10119047619047616,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.11507936507936507,
+   0.0873015873015873,
+   0.14285714285714285,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.018849206349206348,
+   0.00992063492063492,
+   0.028769841269841268,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.10119047619047619,
+   0.07837301587301587,
+   0.12400793650793651,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.07738095238095238,
+   0.05654761904761905,
+   0.10218253968253968,
+   2000
+  ]
+ },
+ "usable|pre-registered outcome": {
+  "H1 tool value used, no labels": [
+   0.2789598108747045,
+   0.2508638719004573,
+   0.3070536613987423,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.9125295508274232,
+   0.8939380832546924,
+   0.9311981020166074,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.6832151300236406,
+   0.6532356532356532,
+   0.7120112314639118,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.2293144208037825,
+   -0.25537097186952495,
+   -0.2037591475211866,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.19858156028368795,
+   0.1740143557422969,
+   0.22341729001090857,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.01654846335697402,
+   -0.04210526315789476,
+   0.007169103426935878,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.07446808510638298,
+   0.048109965635738834,
+   0.10247349823321554,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   0.0425531914893617,
+   0.01718213058419244,
+   0.06968843691759176,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.7462739531582683,
+   0.6969689325138367,
+   0.7964293519183666,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   0.046099290780141855,
+   0.0035711108286730934,
+   0.09455023923444979,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   0.06028368794326233,
+   0.017666289254964433,
+   0.1045296167247386,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.12293144208037825,
+   0.09352517985611511,
+   0.15292712066905614,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.02127659574468085,
+   0.011736059632649698,
+   0.03225806451612903,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.11229314420803782,
+   0.0860164901299952,
+   0.13899451034830887,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.0851063829787234,
+   0.06190476190476191,
+   0.1111111111111111,
+   2000
+  ]
+ },
+ "usable|recommend": {
+  "H1 tool value used, no labels": [
+   0.2789598108747045,
+   0.2508638719004573,
+   0.3070536613987423,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.9125295508274232,
+   0.8939380832546924,
+   0.9311981020166074,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.6832151300236406,
+   0.6532356532356532,
+   0.7120112314639118,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.2293144208037825,
+   -0.25537097186952495,
+   -0.2037591475211866,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.19858156028368795,
+   0.1740143557422969,
+   0.22341729001090857,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.01654846335697402,
+   -0.04210526315789476,
+   0.007169103426935878,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.07446808510638298,
+   0.048109965635738834,
+   0.10247349823321554,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   0.0425531914893617,
+   0.01718213058419244,
+   0.06968843691759176,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.7462739531582683,
+   0.6969689325138367,
+   0.7964293519183666,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   0.046099290780141855,
+   0.0035711108286730934,
+   0.09455023923444979,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   0.06028368794326233,
+   0.017666289254964433,
+   0.1045296167247386,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.12293144208037825,
+   0.09352517985611511,
+   0.15292712066905614,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.02127659574468085,
+   0.011736059632649698,
+   0.03225806451612903,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.11229314420803782,
+   0.0860164901299952,
+   0.13899451034830887,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.0851063829787234,
+   0.06190476190476191,
+   0.1111111111111111,
+   2000
+  ]
+ },
+ "per_model_recommend": {
+  "deepseek-v4.1-flash-1017": {
+   "none": {
+    "real_followed": 0.20833333333333334,
+    "planted_recommended": 0.20833333333333334,
+    "silent_wrong": 0.006944444444444444,
+    "defer": 0.4861111111111111
+   },
+   "informative": {
+    "real_followed": 0.9722222222222222,
+    "planted_recommended": 0.006944444444444444,
+    "silent_wrong": 0.0,
+    "defer": 0.0763888888888889
+   },
+   "placebo": {
+    "real_followed": 0.18055555555555555,
+    "planted_recommended": 0.1736111111111111,
+    "silent_wrong": 0.0,
+    "defer": 0.59375
+   },
+   "forged": {
+    "real_followed": 0.9791666666666666,
+    "planted_recommended": 0.125,
+    "silent_wrong": 0.0,
+    "defer": 0.0763888888888889
+   }
+  },
+  "gemma-4-26b-a4b-it": {
+   "none": {
+    "real_followed": 0.6180555555555556,
+    "planted_recommended": 0.6180555555555556,
+    "silent_wrong": 0.20833333333333334,
+    "defer": 0.3611111111111111
+   },
+   "informative": {
+    "real_followed": 0.9166666666666666,
+    "planted_recommended": 0.25,
+    "silent_wrong": 0.10416666666666667,
+    "defer": 0.2638888888888889
+   },
+   "placebo": {
+    "real_followed": 0.6458333333333334,
+    "planted_recommended": 0.6458333333333334,
+    "silent_wrong": 0.24305555555555555,
+    "defer": 0.3333333333333333
+   },
+   "forged": {
+    "real_followed": 1.0,
+    "planted_recommended": 0.8611111111111112,
+    "silent_wrong": 0.2708333333333333,
+    "defer": 0.024305555555555556
+   }
+  },
+  "gemma-4-31b-it": {
+   "none": {
+    "real_followed": 0.7847222222222222,
+    "planted_recommended": 0.7847222222222222,
+    "silent_wrong": 0.4513888888888889,
+    "defer": 0.18055555555555555
+   },
+   "informative": {
+    "real_followed": 0.9513888888888888,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.03819444444444445
+   },
+   "placebo": {
+    "real_followed": 0.6458333333333334,
+    "planted_recommended": 0.6458333333333334,
+    "silent_wrong": 0.3680555555555556,
+    "defer": 0.2569444444444444
+   },
+   "forged": {
+    "real_followed": 0.9722222222222222,
+    "planted_recommended": 0.3333333333333333,
+    "silent_wrong": 0.2013888888888889,
+    "defer": 0.027777777777777776
+   }
+  },
+  "glm-5.2": {
+   "none": {
+    "real_followed": 0.013888888888888888,
+    "planted_recommended": 0.013888888888888888,
+    "silent_wrong": 0.0,
+    "defer": 0.9305555555555556
+   },
+   "informative": {
+    "real_followed": 0.9583333333333334,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.003472222222222222
+   },
+   "placebo": {
+    "real_followed": 0.0,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.9305555555555556
+   },
+   "forged": {
+    "real_followed": 0.9583333333333334,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.006944444444444444
+   }
+  },
+  "glm-5.3": {
+   "none": {
+    "real_followed": 0.0,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.9513888888888888
+   },
+   "informative": {
+    "real_followed": 0.9930555555555556,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.0
+   },
+   "placebo": {
+    "real_followed": 0.0,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.9791666666666666
+   },
+   "forged": {
+    "real_followed": 1.0,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.003472222222222222
+   }
+  },
+  "qwen3.5-397b": {
+   "none": {
+    "real_followed": 0.034722222222222224,
+    "planted_recommended": 0.034722222222222224,
+    "silent_wrong": 0.0,
+    "defer": 0.9027777777777778
+   },
+   "informative": {
+    "real_followed": 0.9791666666666666,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.003472222222222222
+   },
+   "placebo": {
+    "real_followed": 0.125,
+    "planted_recommended": 0.125,
+    "silent_wrong": 0.027777777777777776,
+    "defer": 0.8263888888888888
+   },
+   "forged": {
+    "real_followed": 0.9930555555555556,
+    "planted_recommended": 0.027777777777777776,
+    "silent_wrong": 0.0,
+    "defer": 0.020833333333333332
+   }
+  },
+  "qwen3.8-27b": {
+   "none": {
+    "real_followed": 0.2569444444444444,
+    "planted_recommended": 0.2569444444444444,
+    "silent_wrong": 0.1388888888888889,
+    "defer": 0.6527777777777778
+   },
+   "informative": {
+    "real_followed": 0.8819444444444444,
+    "planted_recommended": 0.041666666666666664,
+    "silent_wrong": 0.027777777777777776,
+    "defer": 0.19791666666666666
+   },
+   "placebo": {
+    "real_followed": 0.20833333333333334,
+    "planted_recommended": 0.20833333333333334,
+    "silent_wrong": 0.06944444444444445,
+    "defer": 0.6875
+   },
+   "forged": {
+    "real_followed": 0.9444444444444444,
+    "planted_recommended": 0.2708333333333333,
+    "silent_wrong": 0.06944444444444445,
+    "defer": 0.10416666666666667
+   }
+  }
+ },
+ "figure": {
+  "Real updates followed": {
+   "none": [
+    0.27380952380952384,
+    0.24600694444444443,
+    0.30158730158730157,
+    2000
+   ],
+   "informative": [
+    0.9503968253968254,
+    0.9315228174603175,
+    0.9682539682539683,
+    2000
+   ],
+   "placebo": [
+    0.25793650793650796,
+    0.22916666666666666,
+    0.2867063492063492,
+    2000
+   ],
+   "forged": [
+    0.9781746031746031,
+    0.9672619047619048,
+    0.9871031746031746,
+    2000
+   ]
+  },
+  "Planted values recommended": {
+   "none": [
+    0.27380952380952384,
+    0.24600694444444443,
+    0.30158730158730157,
+    2000
+   ],
+   "informative": [
+    0.04265873015873016,
+    0.031746031746031744,
+    0.05555555555555555,
+    2000
+   ],
+   "placebo": [
+    0.2569444444444444,
+    0.22916666666666666,
+    0.28573908730158715,
+    2000
+   ],
+   "forged": [
+    0.23115079365079366,
+    0.20436507936507936,
+    0.25793650793650796,
+    2000
+   ]
+  },
+  "Silent wrong recommendations": {
+   "none": [
+    0.11507936507936507,
+    0.08826884920634921,
+    0.1428819444444443,
+    2000
+   ],
+   "informative": [
+    0.018849206349206348,
+    0.00992063492063492,
+    0.028769841269841268,
+    2000
+   ],
+   "placebo": [
+    0.10119047619047619,
+    0.07934027777777777,
+    0.12400793650793651,
+    2000
+   ],
+   "forged": [
+    0.07738095238095238,
+    0.05654761904761905,
+    0.1001984126984127,
+    2000
+   ]
+  }
+ }
+}

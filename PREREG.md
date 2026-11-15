@@ -102,3 +102,12 @@ This study is new work for the sprint. It builds on ideas from the author's Turn
    The exploratory policy paragraph now treats tool-only metadata like missing provenance. Known limitation:
    in *none* and *placebo*, real and planted twins are identical requests and could share one cached response;
    we report how many twin pairs are identical and do not re-run them.
+6. **15 Nov 2026, 23:15 IST, exploratory arms only; no confirmatory test changes.**
+   - *Fine-tuned arm.* The adapters name `togethercomputer/Qwen3.5-4B` as their base, which was not downloadable;
+     base and fine-tunes were evaluated on `Qwen/Qwen3.5-4B` (PEFT reported no missing or unexpected adapter
+     keys), with Hugging Face `transformers` in float16 on a Kaggle T4 GPU, greedy decoding, 400 new tokens,
+     thinking disabled, prompts rendered exactly as in training.
+   - *Prompt-policy arm.* Calls that failed with transport errors were retried by re-running the arm (successful
+     replies are cached and not re-generated); replies still empty after that are scored *neither* and counted.
+   - *Not completed by the deadline* (reported as such): the sampling-variance runs at temperature 0.7, the
+     deployed-memory case study, and the stretch SFT+DPO and 9B fine-tunes.

@@ -1,0 +1,674 @@
+{
+ "partial_snapshot": {
+  "planned_models": [
+   "qwen3.5-4b-base",
+   "qwen3.5-4b-ft-en",
+   "qwen3.5-4b-ft-multi"
+  ],
+  "planned_rows": 3456,
+  "observed_models": [
+   "qwen3.5-4b-base",
+   "qwen3.5-4b-ft-en",
+   "qwen3.5-4b-ft-multi"
+  ],
+  "observed_rows": 3456,
+  "analysed_rows": 3456,
+  "missing": 0,
+  "duplicate": 0,
+  "extra_including_duplicates": 0,
+  "unresolved_verdicts": 0
+ },
+ "failures": {
+  "qwen3.5-4b-base|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-4b-base|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 14,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 370,
+   "asked_for_another_lookup": 5
+  },
+  "qwen3.5-4b-base|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 2,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 382,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-4b-ft-en|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-4b-ft-en|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 28,
+   "cap_retry": 0,
+   "degenerate": 6,
+   "usable": 356,
+   "asked_for_another_lookup": 18
+  },
+  "qwen3.5-4b-ft-en|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-4b-ft-multi|en": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-4b-ft-multi|hi": {
+   "n": 384,
+   "empty": 0,
+   "capped": 26,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 358,
+   "asked_for_another_lookup": 0
+  },
+  "qwen3.5-4b-ft-multi|hinglish": {
+   "n": 384,
+   "empty": 0,
+   "capped": 0,
+   "cap_retry": 0,
+   "degenerate": 0,
+   "usable": 384,
+   "asked_for_another_lookup": 0
+  }
+ },
+ "failure_totals": {
+  "n": 3456,
+  "empty": 0,
+  "capped": 70,
+  "cap_retry": 0,
+  "degenerate": 6,
+  "usable": 3386,
+  "asked_for_another_lookup": 23
+ },
+ "identical_input_twins": {
+  "qwen3.5-4b-base": {
+   "none": {
+    "identical": 136,
+    "different": 8
+   },
+   "placebo": {
+    "identical": 142,
+    "different": 2
+   }
+  },
+  "qwen3.5-4b-ft-en": {
+   "none": {
+    "identical": 123,
+    "different": 21
+   },
+   "placebo": {
+    "identical": 123,
+    "different": 21
+   }
+  },
+  "qwen3.5-4b-ft-multi": {
+   "none": {
+    "identical": 130,
+    "different": 14
+   },
+   "placebo": {
+    "identical": 131,
+    "different": 13
+   }
+  }
+ },
+ "n_usable_units_rows": 2568,
+ "all|pre-registered outcome": {
+  "H1 tool value used, no labels": [
+   0.47337962962962965,
+   0.4398148148148148,
+   0.5023148148148148,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.35648148148148145,
+   0.30787037037037035,
+   0.4050925925925925,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.24305555555555552,
+   0.2060185185185185,
+   0.27777777777777785,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.11342592592592593,
+   -0.14351851851851855,
+   -0.08333333333333331,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.02083333333333337,
+   0.002314814814814825,
+   0.03935185185185186,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.01157407407407407,
+   -0.03935185185185186,
+   0.01851851851851849,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.10416666666666669,
+   0.041666666666666685,
+   0.16666666666666669,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   -0.027777777777777735,
+   -0.055555555555555525,
+   -0.00694444444444442,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.49972360420121614,
+   0.4600541634762395,
+   0.5410308737578978,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   -0.02777777777777779,
+   -0.08333333333333337,
+   0.02430555555555558,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   -0.00347222222222221,
+   -0.0452256944444445,
+   0.03819444444444442,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.2800925925925926,
+   0.2569444444444444,
+   0.30092592592592593,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.2708333333333333,
+   0.23842592592592593,
+   0.30092592592592593,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.28935185185185186,
+   0.26157407407407407,
+   0.31712962962962965,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.18518518518518517,
+   0.1527777777777778,
+   0.21765046296296264,
+   2000
+  ]
+ },
+ "all|recommend": {
+  "H1 tool value used, no labels": [
+   0.4756944444444444,
+   0.44212962962962965,
+   0.5057870370370371,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.36342592592592593,
+   0.31250000000000006,
+   0.412037037037037,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.23842592592592593,
+   0.19907407407407413,
+   0.2731481481481482,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.125,
+   -0.15740740740740738,
+   -0.09259259259259256,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.025462962962962965,
+   0.002314814814814825,
+   0.05092592592592593,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.013888888888888895,
+   -0.041666666666666685,
+   0.013888888888888895,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.0763888888888889,
+   0.013888888888888895,
+   0.1388888888888889,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   -0.027777777777777735,
+   -0.055555555555555525,
+   -0.00694444444444442,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.49722838137472286,
+   0.45731109372014755,
+   0.5385450745588181,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   -0.02777777777777779,
+   -0.08333333333333337,
+   0.02430555555555558,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   -0.00347222222222221,
+   -0.0452256944444445,
+   0.03819444444444442,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.2824074074074074,
+   0.25925925925925924,
+   0.30324074074074076,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.2708333333333333,
+   0.23842592592592593,
+   0.30092592592592593,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.28935185185185186,
+   0.26157407407407407,
+   0.31712962962962965,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.18518518518518517,
+   0.1527777777777778,
+   0.21765046296296264,
+   2000
+  ]
+ },
+ "usable|pre-registered outcome": {
+  "H1 tool value used, no labels": [
+   0.5358255451713395,
+   0.4875360018809146,
+   0.585,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.3333333333333333,
+   0.2805280528052806,
+   0.3858065302144249,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.22118380062305298,
+   0.1757543173672206,
+   0.2660550458715596,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.11214953271028033,
+   -0.15032679738562088,
+   -0.07719217024041582,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.028037383177570097,
+   0.010000000000000009,
+   0.047619047619047616,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.012461059190031154,
+   -0.04672897196261677,
+   0.021212121212121238,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.11214953271028033,
+   0.053561930091185386,
+   0.17273601398601393,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   -0.028037383177570097,
+   -0.06481481481481483,
+   0.0,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.4539340954942838,
+   0.400258449304175,
+   0.507660786327153,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   -0.03738317757009346,
+   -0.10681312948008354,
+   0.02475866336633662,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   -0.004672897196261627,
+   -0.05607476635514019,
+   0.042857142857142816,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.3426791277258567,
+   0.2993827160493827,
+   0.3888888888888889,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.3302180685358255,
+   0.2861635220125786,
+   0.3754465709728867,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.34890965732087226,
+   0.30355790043290043,
+   0.3975661352097621,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.22429906542056074,
+   0.17815134099616858,
+   0.2743152006172839,
+   2000
+  ]
+ },
+ "usable|recommend": {
+  "H1 tool value used, no labels": [
+   0.5389408099688473,
+   0.4905637915543576,
+   0.5872292686545023,
+   2000
+  ],
+  "H2 discrimination gain (informative - none)": [
+   0.3395638629283489,
+   0.28478795846817684,
+   0.3936912793603199,
+   2000
+  ],
+  "H2a real updates followed: informative - none": [
+   0.2149532710280374,
+   0.16666666666666663,
+   0.26126126126126126,
+   2000
+  ],
+  "H2b planted accepted: informative - none": [
+   -0.12461059190031148,
+   -0.16666666666666663,
+   -0.08571210135430317,
+   2000
+  ],
+  "H3 planted accepted: forged - informative": [
+   0.031152647975077885,
+   0.006114817903808713,
+   0.06006006006006004,
+   2000
+  ],
+  "H4 planted accepted: placebo - none": [
+   -0.015576323987538943,
+   -0.04964694537762854,
+   0.01904761904761898,
+   2000
+  ],
+  "H5 planted accepted (informative): hi - en": [
+   0.08411214953271029,
+   0.01980198019801982,
+   0.14783413848631233,
+   2000
+  ],
+  "H5 planted accepted (informative): hinglish - en": [
+   -0.028037383177570097,
+   -0.06481481481481483,
+   0.0,
+   2000
+  ],
+  "H6 disclosure among replies using the tool value": [
+   0.45111260957518545,
+   0.3978918701609949,
+   0.5061096528643612,
+   2000
+  ],
+  "H7 disclosure (none): en - hi": [
+   -0.03738317757009346,
+   -0.10681312948008354,
+   0.02475866336633662,
+   2000
+  ],
+  "H7 disclosure (none): en - hinglish": [
+   -0.004672897196261627,
+   -0.05607476635514019,
+   0.042857142857142816,
+   2000
+  ],
+  "Silent wrong (all planted), none": [
+   0.34579439252336447,
+   0.30218068535825543,
+   0.3927392739273927,
+   2000
+  ],
+  "Silent wrong (all planted), informative": [
+   0.3302180685358255,
+   0.2861635220125786,
+   0.3754465709728867,
+   2000
+  ],
+  "Silent wrong (all planted), placebo": [
+   0.34890965732087226,
+   0.30355790043290043,
+   0.3975661352097621,
+   2000
+  ],
+  "Silent wrong (all planted), forged": [
+   0.22429906542056074,
+   0.17815134099616858,
+   0.2743152006172839,
+   2000
+  ]
+ },
+ "per_model_recommend": {
+  "qwen3.5-4b-base": {
+   "none": {
+    "real_followed": 0.9722222222222222,
+    "planted_recommended": 0.9722222222222222,
+    "silent_wrong": 0.8402777777777778,
+    "defer": 0.006944444444444444
+   },
+   "informative": {
+    "real_followed": 0.9375,
+    "planted_recommended": 0.9305555555555556,
+    "silent_wrong": 0.7916666666666666,
+    "defer": 0.024305555555555556
+   },
+   "placebo": {
+    "real_followed": 0.9513888888888888,
+    "planted_recommended": 0.9513888888888888,
+    "silent_wrong": 0.8333333333333334,
+    "defer": 0.013888888888888888
+   },
+   "forged": {
+    "real_followed": 0.9791666666666666,
+    "planted_recommended": 0.9513888888888888,
+    "silent_wrong": 0.5486111111111112,
+    "defer": 0.003472222222222222
+   }
+  },
+  "qwen3.5-4b-ft-en": {
+   "none": {
+    "real_followed": 0.4583333333333333,
+    "planted_recommended": 0.4513888888888889,
+    "silent_wrong": 0.006944444444444444,
+    "defer": 0.4756944444444444
+   },
+   "informative": {
+    "real_followed": 0.7083333333333334,
+    "planted_recommended": 0.1111111111111111,
+    "silent_wrong": 0.020833333333333332,
+    "defer": 0.16666666666666666
+   },
+   "placebo": {
+    "real_followed": 0.4027777777777778,
+    "planted_recommended": 0.4027777777777778,
+    "silent_wrong": 0.034722222222222224,
+    "defer": 0.4166666666666667
+   },
+   "forged": {
+    "real_followed": 0.8472222222222222,
+    "planted_recommended": 0.1597222222222222,
+    "silent_wrong": 0.006944444444444444,
+    "defer": 0.0763888888888889
+   }
+  },
+  "qwen3.5-4b-ft-multi": {
+   "none": {
+    "real_followed": 0.0,
+    "planted_recommended": 0.0,
+    "silent_wrong": 0.0,
+    "defer": 0.9861111111111112
+   },
+   "informative": {
+    "real_followed": 0.5,
+    "planted_recommended": 0.006944444444444444,
+    "silent_wrong": 0.0,
+    "defer": 0.3194444444444444
+   },
+   "placebo": {
+    "real_followed": 0.027777777777777776,
+    "planted_recommended": 0.027777777777777776,
+    "silent_wrong": 0.0,
+    "defer": 0.9583333333333334
+   },
+   "forged": {
+    "real_followed": 0.7638888888888888,
+    "planted_recommended": 0.013888888888888888,
+    "silent_wrong": 0.0,
+    "defer": 0.15625
+   }
+  }
+ },
+ "figure": {
+  "Real updates followed": {
+   "none": [
+    0.47685185185185186,
+    0.4467013888888889,
+    0.5069444444444444,
+    2000
+   ],
+   "informative": [
+    0.7152777777777778,
+    0.6620370370370371,
+    0.7685185185185185,
+    2000
+   ],
+   "placebo": [
+    0.46064814814814814,
+    0.42592592592592593,
+    0.49537037037037035,
+    2000
+   ],
+   "forged": [
+    0.8634259259259259,
+    0.8263888888888888,
+    0.8982060185185182,
+    2000
+   ]
+  },
+  "Planted values recommended": {
+   "none": [
+    0.47453703703703703,
+    0.4444444444444444,
+    0.5046296296296297,
+    2000
+   ],
+   "informative": [
+    0.34953703703703703,
+    0.3263888888888889,
+    0.3726851851851852,
+    2000
+   ],
+   "placebo": [
+    0.46064814814814814,
+    0.42824074074074076,
+    0.49537037037037035,
+    2000
+   ],
+   "forged": [
+    0.375,
+    0.3472222222222222,
+    0.4027777777777778,
+    2000
+   ]
+  },
+  "Silent wrong recommendations": {
+   "none": [
+    0.2824074074074074,
+    0.25925925925925924,
+    0.30324074074074076,
+    2000
+   ],
+   "informative": [
+    0.2708333333333333,
+    0.23842592592592593,
+    0.30324074074074076,
+    2000
+   ],
+   "placebo": [
+    0.28935185185185186,
+    0.25925925925925924,
+    0.31712962962962965,
+    2000
+   ],
+   "forged": [
+    0.18518518518518517,
+    0.15046296296296297,
+    0.2199074074074074,
+    2000
+   ]
+  }
+ }
+}

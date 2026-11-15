@@ -1,0 +1,614 @@
+{
+ "core|all|disclosure_vs_judge": {
+  "eligible": 120,
+  "human_valid": 120,
+  "judge_valid": 120,
+  "paired": 120,
+  "agree": 117,
+  "kappa": 0.939,
+  "agreement": 0.975,
+  "confusion": {
+   "human=False / auto=False": 84,
+   "human=True / auto=False": 3,
+   "human=True / auto=True": 33
+  }
+ },
+ "core|all|relay_vs_judge": {
+  "eligible": 120,
+  "human_valid": 120,
+  "judge_valid": 120,
+  "paired": 120,
+  "agree": 110,
+  "kappa": 0.84,
+  "agreement": 0.917,
+  "confusion": {
+   "human=absent / auto=absent": 7,
+   "human=absent / auto=attributed": 2,
+   "human=attributed / auto=attributed": 29,
+   "human=attributed / auto=fact": 3,
+   "human=attributed / auto=hedged": 2,
+   "human=fact / auto=fact": 73,
+   "human=fact / auto=hedged": 1,
+   "human=hedged / auto=fact": 2,
+   "human=hedged / auto=hedged": 1
+  }
+ },
+ "core|all|used_vs_final": {
+  "eligible": 120,
+  "human_valid": 120,
+  "judge_valid": 120,
+  "paired": 120,
+  "agree": 115,
+  "kappa": 0.828,
+  "agreement": 0.958,
+  "confusion": {
+   "human=none / auto=both": 5,
+   "human=none / auto=none": 3,
+   "human=saved / auto=saved": 8,
+   "human=tool / auto=tool": 104
+  }
+ },
+ "core|all|used_vs_judge": {
+  "eligible": 120,
+  "human_valid": 120,
+  "judge_valid": 120,
+  "paired": 120,
+  "agree": 120,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=none / auto=none": 8,
+   "human=saved / auto=saved": 8,
+   "human=tool / auto=tool": 104
+  }
+ },
+ "core|all|used_vs_scorer": {
+  "eligible": 120,
+  "human_valid": 120,
+  "judge_valid": 120,
+  "paired": 120,
+  "agree": 90,
+  "kappa": 0.39,
+  "agreement": 0.75,
+  "confusion": {
+   "human=none / auto=both": 5,
+   "human=none / auto=none": 3,
+   "human=saved / auto=both": 2,
+   "human=saved / auto=saved": 6,
+   "human=tool / auto=both": 23,
+   "human=tool / auto=tool": 81
+  }
+ },
+ "core|en|disclosure_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 39,
+  "kappa": 0.948,
+  "agreement": 0.975,
+  "confusion": {
+   "human=False / auto=False": 23,
+   "human=True / auto=False": 1,
+   "human=True / auto=True": 16
+  }
+ },
+ "core|en|relay_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 34,
+  "kappa": 0.747,
+  "agreement": 0.85,
+  "confusion": {
+   "human=absent / auto=absent": 2,
+   "human=absent / auto=attributed": 1,
+   "human=attributed / auto=attributed": 13,
+   "human=attributed / auto=fact": 1,
+   "human=attributed / auto=hedged": 2,
+   "human=fact / auto=fact": 19,
+   "human=fact / auto=hedged": 1,
+   "human=hedged / auto=fact": 1
+  }
+ },
+ "core|en|used_vs_final": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 37,
+  "kappa": 0.759,
+  "agreement": 0.925,
+  "confusion": {
+   "human=none / auto=both": 3,
+   "human=none / auto=none": 1,
+   "human=saved / auto=saved": 3,
+   "human=tool / auto=tool": 33
+  }
+ },
+ "core|en|used_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 40,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=none / auto=none": 4,
+   "human=saved / auto=saved": 3,
+   "human=tool / auto=tool": 33
+  }
+ },
+ "core|en|used_vs_scorer": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 25,
+  "kappa": 0.306,
+  "agreement": 0.625,
+  "confusion": {
+   "human=none / auto=both": 3,
+   "human=none / auto=none": 1,
+   "human=saved / auto=both": 1,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=both": 11,
+   "human=tool / auto=tool": 22
+  }
+ },
+ "core|hi|disclosure_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 39,
+  "kappa": 0.939,
+  "agreement": 0.975,
+  "confusion": {
+   "human=False / auto=False": 28,
+   "human=True / auto=False": 1,
+   "human=True / auto=True": 11
+  }
+ },
+ "core|hi|relay_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 37,
+  "kappa": 0.859,
+  "agreement": 0.925,
+  "confusion": {
+   "human=absent / auto=absent": 3,
+   "human=absent / auto=attributed": 1,
+   "human=attributed / auto=attributed": 9,
+   "human=attributed / auto=fact": 2,
+   "human=fact / auto=fact": 24,
+   "human=hedged / auto=hedged": 1
+  }
+ },
+ "core|hi|used_vs_final": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 40,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=none / auto=none": 2,
+   "human=saved / auto=saved": 3,
+   "human=tool / auto=tool": 35
+  }
+ },
+ "core|hi|used_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 40,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=none / auto=none": 2,
+   "human=saved / auto=saved": 3,
+   "human=tool / auto=tool": 35
+  }
+ },
+ "core|hi|used_vs_scorer": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 31,
+  "kappa": 0.442,
+  "agreement": 0.775,
+  "confusion": {
+   "human=none / auto=none": 2,
+   "human=saved / auto=both": 1,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=both": 8,
+   "human=tool / auto=tool": 27
+  }
+ },
+ "core|hinglish|disclosure_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 39,
+  "kappa": 0.908,
+  "agreement": 0.975,
+  "confusion": {
+   "human=False / auto=False": 33,
+   "human=True / auto=False": 1,
+   "human=True / auto=True": 6
+  }
+ },
+ "core|hinglish|relay_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 39,
+  "kappa": 0.935,
+  "agreement": 0.975,
+  "confusion": {
+   "human=absent / auto=absent": 2,
+   "human=attributed / auto=attributed": 7,
+   "human=fact / auto=fact": 30,
+   "human=hedged / auto=fact": 1
+  }
+ },
+ "core|hinglish|used_vs_final": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 38,
+  "kappa": 0.733,
+  "agreement": 0.95,
+  "confusion": {
+   "human=none / auto=both": 2,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=tool": 36
+  }
+ },
+ "core|hinglish|used_vs_judge": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 40,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=none / auto=none": 2,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=tool": 36
+  }
+ },
+ "core|hinglish|used_vs_scorer": {
+  "eligible": 40,
+  "human_valid": 40,
+  "judge_valid": 40,
+  "paired": 40,
+  "agree": 34,
+  "kappa": 0.459,
+  "agreement": 0.85,
+  "confusion": {
+   "human=none / auto=both": 2,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=both": 4,
+   "human=tool / auto=tool": 32
+  }
+ },
+ "targeted|all|disclosure_vs_judge": {
+  "eligible": 30,
+  "human_valid": 30,
+  "judge_valid": 30,
+  "paired": 30,
+  "agree": 30,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=False / auto=False": 3,
+   "human=True / auto=True": 27
+  }
+ },
+ "targeted|all|relay_vs_judge": {
+  "eligible": 30,
+  "human_valid": 30,
+  "judge_valid": 30,
+  "paired": 30,
+  "agree": 30,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=absent / auto=absent": 2,
+   "human=attributed / auto=attributed": 25,
+   "human=fact / auto=fact": 3
+  }
+ },
+ "targeted|all|used_vs_final": {
+  "eligible": 30,
+  "human_valid": 30,
+  "judge_valid": 30,
+  "paired": 30,
+  "agree": 24,
+  "kappa": 0.694,
+  "agreement": 0.8,
+  "confusion": {
+   "human=none / auto=both": 4,
+   "human=none / auto=none": 2,
+   "human=none / auto=saved": 1,
+   "human=none / auto=tool": 1,
+   "human=saved / auto=saved": 7,
+   "human=tool / auto=tool": 15
+  }
+ },
+ "targeted|all|used_vs_judge": {
+  "eligible": 30,
+  "human_valid": 30,
+  "judge_valid": 30,
+  "paired": 30,
+  "agree": 28,
+  "kappa": 0.892,
+  "agreement": 0.933,
+  "confusion": {
+   "human=none / auto=none": 6,
+   "human=none / auto=saved": 1,
+   "human=none / auto=tool": 1,
+   "human=saved / auto=saved": 7,
+   "human=tool / auto=tool": 15
+  }
+ },
+ "targeted|all|used_vs_scorer": {
+  "eligible": 30,
+  "human_valid": 30,
+  "judge_valid": 30,
+  "paired": 30,
+  "agree": 3,
+  "kappa": 0.068,
+  "agreement": 0.1,
+  "confusion": {
+   "human=none / auto=both": 6,
+   "human=none / auto=none": 2,
+   "human=saved / auto=both": 7,
+   "human=tool / auto=both": 14,
+   "human=tool / auto=tool": 1
+  }
+ },
+ "targeted|en|disclosure_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 10,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=False / auto=False": 1,
+   "human=True / auto=True": 9
+  }
+ },
+ "targeted|en|relay_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 10,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=absent / auto=absent": 1,
+   "human=attributed / auto=attributed": 8,
+   "human=fact / auto=fact": 1
+  }
+ },
+ "targeted|en|used_vs_final": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 7,
+  "kappa": 0.6,
+  "agreement": 0.7,
+  "confusion": {
+   "human=none / auto=both": 2,
+   "human=none / auto=none": 1,
+   "human=none / auto=tool": 1,
+   "human=saved / auto=saved": 3,
+   "human=tool / auto=tool": 3
+  }
+ },
+ "targeted|en|used_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 9,
+  "kappa": 0.851,
+  "agreement": 0.9,
+  "confusion": {
+   "human=none / auto=none": 3,
+   "human=none / auto=tool": 1,
+   "human=saved / auto=saved": 3,
+   "human=tool / auto=tool": 3
+  }
+ },
+ "targeted|en|used_vs_scorer": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 1,
+  "kappa": 0.063,
+  "agreement": 0.1,
+  "confusion": {
+   "human=none / auto=both": 3,
+   "human=none / auto=none": 1,
+   "human=saved / auto=both": 3,
+   "human=tool / auto=both": 3
+  }
+ },
+ "targeted|hi|disclosure_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 10,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=False / auto=False": 1,
+   "human=True / auto=True": 9
+  }
+ },
+ "targeted|hi|relay_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 10,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=attributed / auto=attributed": 8,
+   "human=fact / auto=fact": 2
+  }
+ },
+ "targeted|hi|used_vs_final": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 9,
+  "kappa": 0.787,
+  "agreement": 0.9,
+  "confusion": {
+   "human=none / auto=both": 1,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=tool": 7
+  }
+ },
+ "targeted|hi|used_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 10,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=none / auto=none": 1,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=tool": 7
+  }
+ },
+ "targeted|hi|used_vs_scorer": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 1,
+  "kappa": 0.032,
+  "agreement": 0.1,
+  "confusion": {
+   "human=none / auto=both": 1,
+   "human=saved / auto=both": 2,
+   "human=tool / auto=both": 6,
+   "human=tool / auto=tool": 1
+  }
+ },
+ "targeted|hinglish|disclosure_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 10,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=False / auto=False": 1,
+   "human=True / auto=True": 9
+  }
+ },
+ "targeted|hinglish|relay_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 10,
+  "kappa": 1.0,
+  "agreement": 1.0,
+  "confusion": {
+   "human=absent / auto=absent": 1,
+   "human=attributed / auto=attributed": 9
+  }
+ },
+ "targeted|hinglish|used_vs_final": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 8,
+  "kappa": 0.697,
+  "agreement": 0.8,
+  "confusion": {
+   "human=none / auto=both": 1,
+   "human=none / auto=none": 1,
+   "human=none / auto=saved": 1,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=tool": 5
+  }
+ },
+ "targeted|hinglish|used_vs_judge": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 9,
+  "kappa": 0.841,
+  "agreement": 0.9,
+  "confusion": {
+   "human=none / auto=none": 2,
+   "human=none / auto=saved": 1,
+   "human=saved / auto=saved": 2,
+   "human=tool / auto=tool": 5
+  }
+ },
+ "targeted|hinglish|used_vs_scorer": {
+  "eligible": 10,
+  "human_valid": 10,
+  "judge_valid": 10,
+  "paired": 10,
+  "agree": 1,
+  "kappa": 0.072,
+  "agreement": 0.1,
+  "confusion": {
+   "human=none / auto=both": 2,
+   "human=none / auto=none": 1,
+   "human=saved / auto=both": 2,
+   "human=tool / auto=both": 5
+  }
+ },
+ "mention_vs_recommendation_core": {
+  "saved": {
+   "saved": 6
+  },
+  "tool": {
+   "tool": 81
+  },
+  "none": {
+   "none": 3
+  },
+  "both": {
+   "tool": 23,
+   "none": 5,
+   "saved": 2
+  }
+ }
+}
