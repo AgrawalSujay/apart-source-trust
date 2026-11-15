@@ -4,6 +4,7 @@ import argparse
 from collections import Counter
 
 from common import ROOT, read_jsonl
+from ft_eval.eval import ARMS as FINETUNE_ARMS
 from judge import judged_row_valid
 from run import MODELS
 
@@ -19,12 +20,15 @@ def load_analysis(description, rep0_only=False):
     args = parser.parse_args()
 
     source = ROOT / args.name
-    confirmatory = source.resolve() == (ROOT / "runs").resolve()
+    resolved = source.resolve()
+    confirmatory = resolved == (ROOT / "runs").resolve()
+    finetune = resolved == (ROOT / "runs" / "finetune").resolve()
     rows = read_jsonl(source / "judged.jsonl")
     counts = Counter(map(row_key, rows))
     invalid = sum(not judged_row_valid(r) for r in rows)
     episodes = read_jsonl(ROOT / "data" / "episodes.jsonl")
-    expected = Counter((m, e["id"], 0) for m in MODELS for e in episodes)
+    planned = FINETUNE_ARMS if finetune else MODELS
+    expected = Counter((m, e["id"], 0) for m in planned for e in episodes)
     missing = sum((expected - counts).values())
     extra = sum((counts - expected).values())
     duplicate = sum(n - 1 for n in counts.values())
@@ -39,10 +43,10 @@ def load_analysis(description, rep0_only=False):
     else:
         rows_used = [r for r in rows if judged_row_valid(r) and counts[row_key(r)] == 1
                      and not r["id"].startswith("pilot:")
-                     and (not confirmatory or row_key(r) in expected)
+                     and (not (confirmatory or finetune) or row_key(r) in expected)
                      and (not rep0_only or r.get("rep", 0) == 0)]
         observed_models = sorted({r["model"] for r in rows})
-        planned_models = list(MODELS)
+        planned_models = list(planned)
         summary = {
             "planned_models": planned_models, "planned_rows": sum(expected.values()),
             "observed_models": observed_models, "observed_rows": len(rows),
@@ -50,12 +54,14 @@ def load_analysis(description, rep0_only=False):
             "missing": missing, "duplicate": duplicate, "extra_including_duplicates": extra,
             "unresolved_verdicts": invalid,
         }
-        header = (f"Partial snapshot | confirmatory plan: {summary['planned_rows']:,} rows "
+        plan = "exploratory fine-tune plan" if finetune else "confirmatory plan"
+        header = (f"Partial snapshot | {plan}: {summary['planned_rows']:,} rows "
                   f"({', '.join(planned_models)})\n"
                   f"Observed {len(rows):,} rows ({', '.join(observed_models) or 'none'}); "
                   f"analysed {len(rows_used):,}, {invalid} unresolved, {duplicate} duplicate rows.")
         print(header)
-        return rows_used, ROOT / "analysis" / "partial", summary, header
+        out = ROOT / "analysis" / "partial"
+        return rows_used, out / "finetune" if finetune else out, summary, header
 
     suffix = "" if confirmatory else args.name.removeprefix("runs/").replace("/", "_")
     # Reserve the partial snapshot directory even if an exploratory input is named that way.

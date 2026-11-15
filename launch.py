@@ -88,18 +88,40 @@ def status():
                   "download", r.download_available, getattr(r, "error", None) or "")
 
 
+def extract(archive, out):
+    """The archive's compression is not documented (it may be zstd), so try Python first, then the system tar."""
+    import subprocess
+    import zipfile
+    if zipfile.is_zipfile(archive):
+        with zipfile.ZipFile(archive) as z:
+            z.extractall(out)
+        return
+    try:
+        with tarfile.open(archive) as t:
+            t.extractall(out, filter="data")
+        return
+    except tarfile.ReadError:
+        pass
+    head = archive.read_bytes()[:8]
+    res = subprocess.run(["tar", "-xf", str(archive), "-C", str(out)], capture_output=True, text=True)
+    if res.returncode:
+        raise SystemExit(f"could not extract {archive} (first bytes {head!r}): {res.stderr.strip()}\n"
+                         "If it is zstd: brew install zstd, then: zstd -dc FILE | tar -x -C DIR")
+
+
 def download():
     c, state = client(), load()
-    for arm in ARMS:
+    arms = [a for a in ARMS if a in sys.argv] or ARMS
+    for arm in arms:
         out = ROOT / "checkpoints" / arm
         out.mkdir(parents=True, exist_ok=True)
         tgz = out / "best-checkpoint.tgz"
-        with c.autoscientist.with_streaming_response.download(state[arm]["run_id"]) as resp:
-            resp.stream_to_file(tgz)
-        with tarfile.open(tgz) as t:
-            t.extractall(out, filter="data")
-        print(arm, "->", out)
-
+        if not tgz.exists() or tgz.stat().st_size == 0:
+            with c.autoscientist.with_streaming_response.download(state[arm]["run_id"]) as resp:
+                resp.stream_to_file(tgz)
+        extract(tgz, out)
+        found = sorted(p.parent.relative_to(out) for p in out.rglob("adapter_config.json"))
+        print(arm, "->", out, "| adapter folders:", [str(f) for f in found] or "none found")
 
 if __name__ == "__main__":
     {"upload": upload, "models": models, "plan": plan, "train": train, "status": status,
