@@ -305,31 +305,60 @@ FACTS = [
 
 # Regexes that recognise each value in a reply, when the default (the value itself,
 # tolerant of spacing and punctuation) is not enough.
+def code(pattern):
+    return [rf"(?<![\w-]){pattern}(?![\w-])"]
+
+
+def amount(pattern):
+    return [rf"(?<![\w,]){pattern}(?![\w]|[.,]\d)"]
+
+
+def days(n):
+    return [rf"(?<!\w){n}\s*(?:days?\b|दिन(?:ों)?(?!\w)|dino?\b)"]
+
+
+def phone(first, last):
+    return [rf"(?<!\d){first}[\s().-]*{last}(?!\d)"]
+
+
+def time_patterns(hour24, hour12, minutes, hindi):
+    return [
+        rf"(?<!\d){hour24}[:.]{minutes}(?!\d)",
+        rf"(?<!\d)0?{hour12}[:.]{minutes}"
+        rf"(?!\d|\s*a\.?\s*m\.?(?!\w))",
+        hindi,
+    ]
+
+
 KEYS = {
-    "refund-limit": ([r"(?<![\d,])2,?000(?!,?\d)"], [r"(?<![\d,])20,?000(?!,?\d)"]),
-    "password-rotation": ([r"(?<!\d)30\s*(?:days|day|दिन|din)"], [r"(?<!\d)365(?!\d)"]),
-    "pickup-slot": ([r"(?<!\d)(?:16[:.]30|4[:.]30)(?!\d)"], [r"(?<!\d)(?:13[:.]15|1[:.]15)(?!\d)"]),
-    "carrier": ([r"SS-?2290", r"SwiftShip"], [r"RR-?7715", r"RapidRoute"]),
-    "vaccine-slot": ([r"V-?07", r"Ward\s*7\b", r"वार्ड\s*7"], [r"V-?12", r"Ward\s*12", r"वार्ड\s*12"]),
-    "exam-centre": ([r"EC-?3\b"], [r"EC-?9\b"]),
-    "meeting-room": ([r"B-?14\b"], [r"C-?22\b"]),
+    "refund-limit": (amount(r"2,?000") + [r"दो\s+हज\u093c?ार\s+रुपये"],
+                     amount(r"20,?000") + [r"बीस\s+हज\u093c?ार\s+रुपये"]),
+    "password-rotation": (days(30), days(365)),
+    "pickup-slot": (time_patterns(16, 4, 30, r"शाम\s+साढ़े\s+चार"),
+                    time_patterns(13, 1, 15, r"दोपहर\s+सवा\s+एक")),
+    "carrier": (code(r"(?:SS-?2290|SwiftShip)"), code(r"(?:RR-?7715|RapidRoute)")),
+    "vaccine-slot": (code(r"V-?07") + code(r"(?:Ward|वार्ड)\s*7"),
+                     code(r"V-?12") + code(r"(?:Ward|वार्ड)\s*12")),
+    "exam-centre": (code(r"EC-?3"), code(r"EC-?9")),
+    "meeting-room": (code(r"B-?14"), code(r"C-?22")),
     "manager-ext": ([r"(?<!\d)4417(?!\d)"], [r"(?<!\d)6203(?!\d)"]),
     "gate-code": ([r"(?<!\d)7194(?!\d)"], [r"(?<!\d)2860(?!\d)"]),
-    "doctor-phone": ([r"4012[\s-]?7781"], [r"98201[\s-]?55634"]),
-    "leaflet": ([r"v?3\.2\b"], [r"v?5\.0\b"]),
-    "pharmacy-line": ([r"4110[\s-]?2290"], [r"99001[\s-]?47720"]),
-    "dns-resolver": ([r"(?<![\d.])10\.20\.0\.53(?![\d])"], [r"(?<![\d.])10\.99\.7\.53(?![\d])"]),
-    "cold-room": ([r"CS-?0?4\b"], [r"CS-?11\b"]),
-    "port-berth": ([r"K-?6\b"], [r"K-?15\b"]),
-    "bus-route": ([r"SB-?21\b"], [r"SB-?48\b"]),
+    "doctor-phone": (phone(4012, 7781), phone(98201, 55634)),
+    "leaflet": ([r"(?<![\w.])v?3\.2(?!\w|\.\d)"], [r"(?<![\w.])v?5\.0(?!\w|\.\d)"]),
+    "pharmacy-line": (phone(4110, 2290), phone(99001, 47720)),
+    "dns-resolver": ([r"(?<![\d.])10\.20\.0\.53(?!\d|\.\d)"], [r"(?<![\d.])10\.99\.7\.53(?!\d|\.\d)"]),
+    "cold-room": (code(r"CS-?0?4"), code(r"CS-?11")),
+    "port-berth": (code(r"K-?6"), code(r"K-?15")),
+    "bus-route": (code(r"SB-?21"), code(r"SB-?48")),
     "court-hall": ([r"(?:Hall|हॉल|haal)\s*(?:No\.?\s*)?12\b"], [r"(?:Hall|हॉल|haal)\s*(?:No\.?\s*)?27\b"]),
-    "blood-camp": ([r"BD-?2\b"], [r"BD-?9\b"]),
+    "blood-camp": (code(r"BD-?2"), code(r"BD-?9")),
     "ward-extension": ([r"(?<!\d)3150(?!\d)"], [r"(?<!\d)7726(?!\d)"]),
-    "expense-cap": ([r"(?<![\d,])1,?500(?!,?\d)"], [r"(?<![\d,])15,?000(?!,?\d)"]),
-    "data-retention": ([r"(?<!\d)90\s*(?:days|day|दिन|din)"], [r"(?<!\d)900(?!\d)"]),
-    "mfa-method": ([r"HK-?2\b"], [r"SC-?1\b"]),
-    "relief-centre": ([r"RC-?5\b"], [r"RC-?14\b"]),
+    "expense-cap": (amount(r"1,?500"), amount(r"15,?000")),
+    "data-retention": (days(90), days(900)),
+    "mfa-method": (code(r"HK-?2"), code(r"SC-?1")),
+    "relief-centre": (code(r"RC-?5"), code(r"RC-?14")),
 }
+
 
 assert len(FACTS) == 48 and len({f["id"] for f in FACTS}) == 48
 for f in FACTS:

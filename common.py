@@ -49,7 +49,7 @@ def load_env(model=None):
 _lock = threading.Lock()
 
 
-def chat(model, messages, *, max_tokens=400, temperature=0.0, extra=None, retries=6, timeout=180):
+def chat(model, messages, *, max_tokens=400, temperature=0.0, extra=None, retries=6, timeout=180, cache_scope=None):
     """One chat completion, cached on disk by request content."""
     base, key = load_env(model)
     adaption = model in ADAPTION_MODELS
@@ -62,11 +62,16 @@ def chat(model, messages, *, max_tokens=400, temperature=0.0, extra=None, retrie
         payload = {"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens}
         payload.update(NO_THINKING)
     payload.update(extra or {})
-    digest = hashlib.sha256(json.dumps([base, payload], sort_keys=True).encode()).hexdigest()
+    cache_request = [base, payload]
+    if cache_scope is not None:
+        cache_request.append(cache_scope)
+    digest = hashlib.sha256(json.dumps(cache_request, sort_keys=True).encode()).hexdigest()
     path = CACHE / f"{digest}.json"
     if path.exists():
         try:
-            return json.loads(path.read_text("utf-8"))
+            cached = json.loads(path.read_text("utf-8"))
+            if isinstance(cached, dict) and cached.get("text") and not cached.get("error"):
+                return cached
         except (ValueError, OSError):
             pass
     body = json.dumps(payload).encode()
@@ -86,14 +91,19 @@ def chat(model, messages, *, max_tokens=400, temperature=0.0, extra=None, retrie
                 raise RuntimeError(last) from None
         except (urllib.error.URLError, TimeoutError) as e:
             last = str(e)
-        time.sleep(min(60, 2 ** attempt * 2))
+        if attempt < retries:
+            time.sleep(min(60, 2 ** attempt * 2))
     else:
         raise RuntimeError(f"API failed after retries: {last}")
+    status = data.get("status")
+    if status == "failed" or data.get("error") is not None:
+        raise RuntimeError("Provider returned a failed response")
     if adaption:
         parts = [c.get("text") or "" for item in data.get("output") or [] if item.get("type") == "message"
                  for c in item.get("content") or [] if c.get("type") == "output_text"]
         text = data.get("output_text") or "".join(parts)
-        finish = "length" if data.get("status") == "incomplete" else data.get("status")
+        reason = (data.get("incomplete_details") or {}).get("reason")
+        finish = "length" if status == "incomplete" and reason == "max_output_tokens" else (reason or status)
         usage = data.get("usage") or {}
     else:
         msg = data["choices"][0]["message"]
@@ -105,6 +115,8 @@ def chat(model, messages, *, max_tokens=400, temperature=0.0, extra=None, retrie
     elif "<think>" in text:  # reasoning was cut off before the answer
         text = ""
     out = {"text": text.strip(), "usage": usage, "finish": finish}
+    if not out["text"]:
+        return out
     CACHE.mkdir(exist_ok=True)
     tmp = path.with_suffix(f".{os.getpid()}.{threading.get_ident()}.tmp")
     tmp.write_text(json.dumps(out, ensure_ascii=False), "utf-8")
@@ -121,3 +133,14 @@ def write_jsonl(path, rows):
     with open(path, "w", encoding="utf-8") as fh:
         for row in rows:
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def degenerate(text):
+    """A reply that collapses into one word repeated 10+ times in a row (e.g. 'our our our ...')."""
+    import re
+    return bool(re.search(r"(?<!\S)(\S+)(?:\s+\1){9,}(?!\S)", text or ""))
+
+
+def usable(row):
+    """A reply a user could act on: not empty or failed, not cut off by the token cap, not degenerate."""
+    return bool(row.get("reply")) and not row.get("error") and row.get("finish") != "length" and not degenerate(row.get("reply"))

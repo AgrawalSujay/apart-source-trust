@@ -8,6 +8,7 @@ Output: data/translations.json. Run: python3 translate.py
 import json
 import re
 import sys
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 
 from common import ROOT, chat
@@ -34,7 +35,7 @@ def translate(text, lang):
         out = chat(TRANSLATOR, [{"role": "user", "content": prompt}], max_tokens=4000,
                    extra={"seed": attempt} if attempt else None)["text"].strip()
         out = re.sub(r"^(TEXT|Translation|अनुवाद)\s*:\s*", "", out).strip()
-        if all(k in out for k in keep) and out:
+        if out and Counter(re.findall(r"\{[a-z_]+\}", out)) == Counter(keep):
             return out
     print(f"FAILED ({lang}): {text[:80]!r} -> last output {out[:120]!r}")
     return None

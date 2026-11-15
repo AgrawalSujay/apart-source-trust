@@ -5,7 +5,7 @@
   python3 run.py --models glm-5.3     # one model
   python3 run.py --samples 3          # exploratory: 3 extra samples per episode at temperature 0.7
 
-Output: runs/<model>.jsonl (or runs/pilot_<model>.jsonl). Re-running is free: replies are cached.
+Output: runs/<model>.jsonl (or runs/pilot_<model>.jsonl). Successful non-empty replies are cached.
 """
 
 import argparse
@@ -22,20 +22,25 @@ MODELS = ("deepseek-v4.1-flash-1017", "glm-5.3", "qwen3.8-27b",            # Vul
 MAX_TOKENS = {"glm-5.3": 8000, "glm-5.2": 8000, "qwen3.5-397b": 8000}  # 4,000 was not always enough (see PREREG deviations)
 
 
-def run_one(model, ep, rep=0):
+def run_one(model, ep, rep=0, cache_scope=None):
     temp, extra = (0.0, None) if rep == 0 else (0.7, {"seed": rep})
+    cap = MAX_TOKENS.get(model, 400)
+    retried, first_finish = False, None
     try:
-        cap = MAX_TOKENS.get(model, 400)
-        out = chat(model, ep["messages"], max_tokens=cap, temperature=temp, extra=extra)
-        retried = False
-        if not out["text"] and out["finish"] == "length":
-            # Pre-registered (deviation 3): a reply left empty by the token cap is re-run once at 4x the cap.
-            out = chat(model, ep["messages"], max_tokens=cap * 4, temperature=temp, extra=extra)
+        out = chat(model, ep["messages"], max_tokens=cap, temperature=temp, extra=extra,
+                   cache_scope=cache_scope)
+        first_finish = out["finish"]
+        if not out["text"] and first_finish == "length":
             retried = True
-        return {"id": ep["id"], "model": model, "rep": rep, "reply": out["text"], "finish": out["finish"],
-                "usage": out["usage"], "error": None, "cap_retry": retried}
-    except Exception as e:  # transport errors already retried 6 times inside chat()
-        return {"id": ep["id"], "model": model, "rep": rep, "reply": "", "finish": None, "usage": {}, "error": str(e)[:300]}
+            cap *= 4
+            out = chat(model, ep["messages"], max_tokens=cap, temperature=temp, extra=extra,
+                       cache_scope=cache_scope)
+        reply, finish, usage, error = out["text"], out["finish"], out["usage"], None
+    except Exception as exc:
+        reply, finish, usage, error = "", None, {}, str(exc)[:300]
+    return {"id": ep["id"], "model": model, "rep": rep, "reply": reply, "finish": finish,
+            "usage": usage, "error": error, "cap_retry": retried, "first_finish": first_finish,
+            "max_tokens": cap}
 
 
 def main():
@@ -45,13 +50,25 @@ def main():
     ap.add_argument("--concurrency", type=int, default=8)
     ap.add_argument("--samples", type=int, default=0)
     ap.add_argument("--policy", action="store_true", help="exploratory prompt-fix episodes")
+    ap.add_argument("--scope-cache", action="store_true", help="scope cached replies by episode and replicate")
     a = ap.parse_args()
     src = "pilot.jsonl" if a.pilot else ("episodes_policy.jsonl" if a.policy else "episodes.jsonl")
     eps = read_jsonl(ROOT / "data" / src)
     for model in a.models:
         jobs = [(e, r) for e in eps for r in (range(1, a.samples + 1) if a.samples else [0])]
+        done = [0]
+
+        def tick(j):
+            ep, rep = j
+            scope = (src, ep["id"], rep) if a.scope_cache else None
+            r = run_one(model, ep, rep, cache_scope=scope)
+            done[0] += 1
+            if done[0] % 50 == 0 or done[0] == len(jobs):
+                print(f"  {model}: {done[0]}/{len(jobs)}", flush=True)
+            return r
+
         with ThreadPoolExecutor(a.concurrency) as pool:
-            rows = list(pool.map(lambda j: run_one(model, *j), jobs))
+            rows = list(pool.map(tick, jobs))
         sub = ("policy/" if a.policy else "") + ("samples/" if a.samples else "")
         path = ROOT / "runs" / f"{sub}{'pilot_' if a.pilot else ''}{model}.jsonl"
         write_jsonl(path, rows)
